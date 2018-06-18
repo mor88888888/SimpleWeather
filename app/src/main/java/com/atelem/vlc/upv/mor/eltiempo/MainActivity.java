@@ -13,10 +13,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
-
-
-
     public String [] Consulta (String Ciudad){
         EditText Poblacion = (EditText) findViewById(R.id.editText);
 
@@ -25,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         }
         catch(ClassNotFoundException e){
             System.out.println("Error abriendo el driver: " +e.toString());
-            return;
         }
 
             //INICIALIZACIONES Y DEFINICIONES
@@ -33,16 +28,17 @@ public class MainActivity extends AppCompatActivity {
             Statement st;
             ResultSet rs;
             String SQL;
+            String out;
 
 
             //CONEXIONES
-            con=DriverManager.getConnection("jdbc:mysql://servermor.asucomm.com/eltiempo","root","mor");
-
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://servermor.asucomm.com:1562/eltiempo", "root", "mor");
             st = con.createStatement();
-            SQL="SELECT CPRO,CMUN, NOMBRE FROM ElTiempo Where='" +Poblacion+"'";
-
-            rs=st.executeQuery(SQL);
-
+            out = rs.getWriter();
+        } catch (SQLException e){
+            System.out.println(e);
+        }
 
 
     }
