@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String [] Consulta (String Ciudad){
-        private EditText Poblacion = (EditText) findViewById(R.id/editText);
+        EditText Poblacion = (EditText) findViewById(R.id/editText);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             //CONEXIONES
-            con=DriverManager.getConnection("jdbc:mysql://localhost/despach","root","");
+            con=DriverManager.getConnection("jdbc:mysql://servermor.asucomm.com/eltiempo","root","mor");
 
             st = con.createStatement();
 
