@@ -4,6 +4,9 @@ import java.sql.*;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String [] Consulta (String Ciudad){
-        EditText Poblacion = (EditText) findViewById(R.id/editText);
+        EditText Poblacion = (EditText) findViewById(R.id.editText);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
