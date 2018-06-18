@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public String [] Consulta (String Ciudad){
+    public Array [] Consulta (String Ciudad){
         EditText Poblacion = (EditText) findViewById(R.id.editText);
 
         try {
@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         Connection con;
         Statement st;
         ResultSet rs;
-        String SQL="SELECT CPRO,CMUN, NOMBRE FROM ElTiempo Where='" +Poblacion+"'";
-        String [] out=new String[20];
+        String SQL="SELECT CPRO, CMUN, NOMBRE FROM ElTiempo Where='" +Poblacion+"'";
+        Array [] out=new Array[20];
 
 
             //CONEXIONES
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             st = con.createStatement();
             rs = st.executeQuery(SQL);
             for(int i=0;rs.next();i++){
-                out[i] = rs.getString(i);
+                out[i] = rs.getArray(i);
             }
         } catch (SQLException e){
             System.out.println(e);
