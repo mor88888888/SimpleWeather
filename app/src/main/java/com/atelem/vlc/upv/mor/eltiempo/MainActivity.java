@@ -23,24 +23,26 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("Error abriendo el driver: " +e.toString());
         }
 
-            //INICIALIZACIONES Y DEFINICIONES
-            Connection con;
-            Statement st;
-            ResultSet rs;
-            String SQL;
-            String out;
+        //INICIALIZACIONES Y DEFINICIONES
+        Connection con;
+        Statement st;
+        ResultSet rs;
+        String SQL="SELECT CPRO,CMUN, NOMBRE FROM ElTiempo Where='" +Poblacion+"'";
+        String [] out=new String[20];
 
 
             //CONEXIONES
         try {
             con = DriverManager.getConnection("jdbc:mysql://servermor.asucomm.com:1562/eltiempo", "root", "mor");
             st = con.createStatement();
-            out = rs.getWriter();
+            rs = st.executeQuery(SQL);
+            for(int i=0;rs.next();i++){
+                out[i] = rs.getString(i);
+            }
         } catch (SQLException e){
             System.out.println(e);
         }
-
-
+        return out;
     }
     //Private string Poblacion;
 }
