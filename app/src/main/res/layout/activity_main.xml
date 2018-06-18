@@ -6,31 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_mor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:onClick="Consulta"
+        android:text="Buscar"
+        tools:layout_editor_absoluteX="262dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Introducir Polacion"
+        android:inputType="text"
+        android:text="Poblacion"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Buscar"
-        tools:layout_editor_absoluteX="262dp"
         tools:layout_editor_absoluteY="16dp" />
 
 </android.support.constraint.ConstraintLayout>
