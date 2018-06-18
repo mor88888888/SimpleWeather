@@ -13,8 +13,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
+
+
+
     public String [] Consulta (String Ciudad){
-        EditText Poblacion = (EditText) findViewById(R.id/editText);
+        EditText Poblacion = (EditText) findViewById(R.id.editText);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -35,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
             con=DriverManager.getConnection("jdbc:mysql://servermor.asucomm.com/eltiempo","root","mor");
 
             st = con.createStatement();
+            SQL="SELECT CPRO,CMUN, NOMBRE FROM ElTiempo Where='" +Poblacion+"'";
 
-            out = res.getWriter();
+            rs=st.executeQuery(SQL);
 
 
 
