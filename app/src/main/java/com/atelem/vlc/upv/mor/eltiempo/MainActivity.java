@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         }
         catch(ClassNotFoundException e){
             System.out.println("Error abriendo el driver: " +e.toString());
-            return;
         }
 
             //INICIALIZACIONES Y DEFINICIONES
@@ -29,15 +28,17 @@ public class MainActivity extends AppCompatActivity {
             Statement st;
             ResultSet rs;
             String SQL;
+            String out;
 
 
             //CONEXIONES
-            con=DriverManager.getConnection("jdbc:mysql://servermor.asucomm.com/eltiempo","root","mor");
-
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://servermor.asucomm.com:1562/eltiempo", "root", "mor");
             st = con.createStatement();
-
-            out = res.getWriter();
-
+            out = rs.getWriter();
+        } catch (SQLException e){
+            System.out.println(e);
+        }
 
 
     }
