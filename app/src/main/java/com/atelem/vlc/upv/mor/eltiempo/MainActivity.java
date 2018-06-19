@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.os.StrictMode;
 
 public class MainActivity extends AppCompatActivity {
     private EditText Poblacion;
@@ -18,12 +19,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Array [] Consulta (View view){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+        StrictMode.setThreadPolicy(policy);
         //new Thread(new Runnable() {
            // public void run() {
 
                 Poblacion = findViewById(R.id.editText);
                 Log.d("busqueda", String.valueOf(Poblacion));
-                String driver = "com.mysql.jdbc.Driver";
+                String driver = "com.mariadb.jdbc.Driver";
 
                 try {
                     System.out.println("hola1");
@@ -31,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                     Class.forName(driver).newInstance();
                 } catch (Exception e) {
 
-                    System.out.println("Error abriendo el driver: " + e.toString());
+                    e.printStackTrace();
                 }
 
                 //INICIALIZACIONES Y DEFINICIONES
@@ -44,20 +48,19 @@ public class MainActivity extends AppCompatActivity {
 
                 //CONEXIONES
                 try {
-
-                    con = DriverManager.getConnection("jdbc:mysql://servermor.asuscomm.com:1562/eltiempo", "root", "mor");
+                    con = DriverManager.getConnection("jdbc:mariadb://servermor.asuscomm.com:1562/eltiempo", "root", "mor");
+                    //con = DriverManager.getConnection("jdbc:mysql://servermor.asuscomm.com:1562/eltiempo", "root", "mor");
                     System.out.println("hola2");
                     st = con.createStatement();
                     System.out.println("hola3");
                     rs = st.executeQuery(SQL);
                     for (int i = 0; rs.next(); i++)
-
                     {
                         out[i] = rs.getArray(i);
                     }
 
                 } catch (SQLException e) {
-                    System.out.println(e);
+                    e.printStackTrace();
                 }
         //    }
 
