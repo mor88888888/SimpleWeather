@@ -15,18 +15,10 @@ public class MainActivity extends AppCompatActivity {
         Poblacion = (EditText)findViewById(R.id.editText);
     }
 
-    consultaAsincrona consulta = new consultaAsincrona();
-
     public void Consulta (View view) {
-
+        consultaAsincrona consulta = new consultaAsincrona();
         String NOMBRE = Poblacion.getText().toString();
         consulta.execute(NOMBRE);
-        //System.out.println("Respuesta: "+consulta.onPostExecute());
-    }
-
-    protected void printMain(String str) {
-        response=str;
-        System.out.println("Respuesta: "+response);
     }
 
 }

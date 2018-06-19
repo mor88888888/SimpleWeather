@@ -14,7 +14,7 @@ public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
         try {
 
             System.out.println("Nombre: "+NOMBRE[0]);
-            //URL url = new URL("http://servermor.asuscomm.com:8564/bd.php?nombre=" + NOMBRE);
+            //URL url = new URL("http://servermor.asuscomm.com:8564/bd.php?nombre=" + NOMBRE[0]);
             URL url = new URL("http://192.168.1.12/bd.php?nombre=" + NOMBRE[0]);
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
             if((inputLine = in.readLine()) != null){
@@ -22,17 +22,10 @@ public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
             } else{
                 System.out.println("ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
-            this.onPostExecute();
-            //i.putExtra("direccion", NOMBRE);
         } catch (Exception e){
             System.out.println(e);
         }
         return null;
-    }
-
-    protected void onPostExecute() {
-        MainActivity m = new MainActivity();
-        m.printMain(inputLine);
     }
 
 
