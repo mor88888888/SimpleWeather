@@ -54,19 +54,18 @@ public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
             while((line = in.readLine()) != null){
                 response += line+"\n";
             }
-            System.out.println(response);
             JSONArray json = new JSONArray(response);
             JSONObject raiz = json.getJSONObject(0);
-            diaactual=raiz.getString("elaborado");
-            String []diames=diaactual.split("-");
             JSONObject prediccion = raiz.getJSONObject("prediccion");
             JSONArray dia = prediccion.getJSONArray("dia");
             JSONObject num_dia = dia.getJSONObject(0);
-
             JSONArray cielo = num_dia.getJSONArray("estadoCielo");
             JSONObject tododia = cielo.getJSONObject(0);
 
+            diaactual=raiz.getString("elaborado");
+            String []diames=diaactual.split("-");
             cielos[0]=tododia.getString("descripcion");
+
             //api = json.getString("datos");
             //System.out.println(api);
         } catch (Exception e){
