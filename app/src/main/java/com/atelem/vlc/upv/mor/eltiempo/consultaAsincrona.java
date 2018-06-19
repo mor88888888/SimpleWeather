@@ -7,8 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import okhttp3.*;
-import javax.json.*;
 
 public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
 
@@ -35,14 +33,14 @@ public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
                     +"prediccion/especifica/municipio/diaria/"
                     +inputLine+"?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb21vYWw2QGRvY3Rvci51cHYuZXMiLCJqdGkiOiJjMjc3YmIzZS04YWEwLTQ4MGMtOTFmZC1hODNlZjYxMjdkMTciLCJpc3MiOiJBRU1FVCIsImlhdCI6MTUyNjAyNDE1NywidXNlcklkIjoiYzI3N2JiM2UtOGFhMC00ODBjLTkxZmQtYTgzZWY2MTI3ZDE3Iiwicm9sZSI6IiJ9.wa5Ft9x1FyKTJKRxP-DcO3urDFGNp6zSnFoAdb33Cc8");
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-            String ok="";
+            String ok;
             while((ok = in.readLine()) != null){
                 System.out.println(ok);
             }
         } catch (Exception e){
             System.out.println(e);
         }
-        return true;
+        return null;
     }
 
 
