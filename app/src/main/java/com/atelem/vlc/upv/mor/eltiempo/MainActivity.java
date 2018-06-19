@@ -5,6 +5,7 @@ import java.sql.*;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -14,10 +15,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Poblacion = findViewById(R.id.editText);
     }
 
     public Array [] Consulta (View view){
+        Poblacion = findViewById(R.id.editText);
+        Log.d("busqueda", String.valueOf(Poblacion));
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         }
@@ -41,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
             for(int i=0;rs.next();i++){
                 out[i] = rs.getArray(i);
             }
-            
         } catch (SQLException e){
             System.out.println(e);
         }
