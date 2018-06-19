@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 //CONEXIONES
                 try {
 
-
                     con = DriverManager.getConnection("jdbc:mysql://servermor.asuscomm.com:1562/eltiempo", "root", "mor");
                     System.out.println("hola2");
                     st = con.createStatement();
@@ -56,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
                     {
                         out[i] = rs.getArray(i);
                     }
-
 
                 } catch (SQLException e) {
                     System.out.println(e);
