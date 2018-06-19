@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Array [] out=new Array[20];
 
 
-            //CONEXIONES
+        //CONEXIONES
         try {
             con = DriverManager.getConnection("jdbc:mysql://servermor.asucomm.com:1562/eltiempo", "root", "mor");
             st = con.createStatement();
