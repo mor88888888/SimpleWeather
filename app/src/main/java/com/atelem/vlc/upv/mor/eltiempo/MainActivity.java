@@ -18,43 +18,53 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Array [] Consulta (View view){
-        Poblacion = findViewById(R.id.editText);
-        Log.d("busqueda", String.valueOf(Poblacion));
-        String driver = "com.mysql.jdbc.Driver";
+        //new Thread(new Runnable() {
+           // public void run() {
 
-        try
-        {
-            System.out.println("hola1");
-            /*Cargamos el driver del conector JDBC.*/
-            Class.forName(driver).newInstance();
-        }
-        catch(Exception e){
+                Poblacion = findViewById(R.id.editText);
+                Log.d("busqueda", String.valueOf(Poblacion));
+                String driver = "com.mysql.jdbc.Driver";
 
-            System.out.println("Error abriendo el driver: " +e.toString());
-        }
+                try {
+                    System.out.println("hola1");
+                    /*Cargamos el driver del conector JDBC.*/
+                    Class.forName(driver).newInstance();
+                } catch (Exception e) {
 
-        //INICIALIZACIONES Y DEFINICIONES
-        Connection con;
-        Statement st;
-        ResultSet rs;
-        String SQL="SELECT CPRO, CMUN, NOMBRE FROM Codigo Where='" +Poblacion+"'";
-        Array [] out=new Array[20];
+                    System.out.println("Error abriendo el driver: " + e.toString());
+                }
+
+                //INICIALIZACIONES Y DEFINICIONES
+                Connection con;
+                Statement st;
+                ResultSet rs;
+                String SQL = "SELECT CPRO, CMUN, NOMBRE FROM Codigo Where='" + Poblacion + "'";
+                Array[] out = new Array[20];
 
 
-        //CONEXIONES
-        try {
+                //CONEXIONES
+                try {
 
-            con = DriverManager.getConnection("jdbc:mysql://servermor.asuscomm.com:1562/eltiempo","root","mor");
-            System.out.println("hola2");
-            st = con.createStatement();
-            System.out.println("hola3");
-            rs = st.executeQuery(SQL);
-            for(int i=0;rs.next();i++){
-                out[i] = rs.getArray(i);
-            }
-        } catch (SQLException e){
-            System.out.println(e);
-        }
+
+                    con = DriverManager.getConnection("jdbc:mysql://servermor.asuscomm.com:1562/eltiempo", "root", "mor");
+                    System.out.println("hola2");
+                    st = con.createStatement();
+                    System.out.println("hola3");
+                    rs = st.executeQuery(SQL);
+                    for (int i = 0; rs.next(); i++)
+
+                    {
+                        out[i] = rs.getArray(i);
+                    }
+
+
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+        //    }
+
+        //}).start();
+
         return out;
     }
 }
