@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
     public void Consulta (View view) {
 
         String NOMBRE = Poblacion.getText().toString();
-        consultaAsincrona consultaAsincrona = new consultaAsincrona();
-        consultaAsincrona.doInBackground(NOMBRE);
-
+        consultaAsincrona consulta = new consultaAsincrona();
+        consulta.execute(NOMBRE);
+        System.out.println("Respuesta "+consulta.getLine());
     }
 
 }
