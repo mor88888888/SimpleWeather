@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-
+    private EditText Poblacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Poblacion = (EditText)findViewById(R.id.poblacion);
     }
 
     public Array [] Consulta (){
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             for(int i=0;rs.next();i++){
                 out[i] = rs.getArray(i);
             }
+            
         } catch (SQLException e){
             System.out.println(e);
         }
