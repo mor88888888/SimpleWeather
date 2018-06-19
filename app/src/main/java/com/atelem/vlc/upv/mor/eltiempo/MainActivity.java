@@ -20,10 +20,16 @@ public class MainActivity extends AppCompatActivity {
     public Array [] Consulta (View view){
         Poblacion = findViewById(R.id.editText);
         Log.d("busqueda", String.valueOf(Poblacion));
-        try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        String driver = "com.mysql.jdbc.Driver";
+
+        try
+        {
+            System.out.println("hola1");
+            /*Cargamos el driver del conector JDBC.*/
+            Class.forName(driver).newInstance();
         }
         catch(Exception e){
+
             System.out.println("Error abriendo el driver: " +e.toString());
         }
 
@@ -31,14 +37,17 @@ public class MainActivity extends AppCompatActivity {
         Connection con;
         Statement st;
         ResultSet rs;
-        String SQL="SELECT CPRO, CMUN, NOMBRE FROM ElTiempo Where='" +Poblacion+"'";
+        String SQL="SELECT CPRO, CMUN, NOMBRE FROM Codigo Where='" +Poblacion+"'";
         Array [] out=new Array[20];
 
 
         //CONEXIONES
         try {
-            con = DriverManager.getConnection("jdbc:mysql://servermor.asucomm.com:1562/eltiempo", "root", "mor");
+
+            con = DriverManager.getConnection("jdbc:mysql://servermor.asuscomm.com:1562/eltiempo","root","mor");
+            System.out.println("hola2");
             st = con.createStatement();
+            System.out.println("hola3");
             rs = st.executeQuery(SQL);
             for(int i=0;rs.next();i++){
                 out[i] = rs.getArray(i);
