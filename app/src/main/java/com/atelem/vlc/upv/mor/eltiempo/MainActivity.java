@@ -1,6 +1,8 @@
 package com.atelem.vlc.upv.mor.eltiempo;
 
 import java.sql.*;
+
+import android.arch.lifecycle.ViewModelProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,16 +14,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Poblacion = (EditText)findViewById(R.id.editText);
+        Poblacion = findViewById(R.id.editText);
     }
 
     public Array [] Consulta (View view){
-        EditText Poblacion = findViewById(R.id.editText);
-
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
         }
-        catch(ClassNotFoundException e){
+        catch(Exception e){
             System.out.println("Error abriendo el driver: " +e.toString());
         }
 
