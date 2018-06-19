@@ -65,6 +65,7 @@ public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
 
             JSONArray cielo = num_dia.getJSONArray("estadoCielo");
             JSONObject tododia = cielo.getJSONObject(0);
+
             cielos[0]=tododia.getString("descripcion");
             //api = json.getString("datos");
             //System.out.println(api);
