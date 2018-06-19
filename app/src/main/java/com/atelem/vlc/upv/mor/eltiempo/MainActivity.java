@@ -32,18 +32,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Consulta (View view) {
-        try {
-            String NOMBRE = Poblacion.getText().toString();
-            System.out.println(NOMBRE);
-            URL url = new URL("http://servermor.asuscomm.com?nombre=" + NOMBRE);
-            String inputLine;
-            BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-            while((inputLine = in.readLine()) != null){
-                System.out.println(inputLine);
-            }
-        } catch (Exception e){
-            System.out.println(e);
-        }
+
+        String NOMBRE = Poblacion.getText().toString();
+        consultaAsincrona consultaAsincrona = new consultaAsincrona(NOMBRE)
+
 
     }
 
