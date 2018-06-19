@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     public Array [] Consulta (View view){
         Poblacion = findViewById(R.id.editText);
-        Log.d("busqueda", String.valueOf(Poblacion));
+        System.out.println(String.valueOf(Poblacion));
         String driver = "com.mysql.jdbc.Driver";
 
         try
