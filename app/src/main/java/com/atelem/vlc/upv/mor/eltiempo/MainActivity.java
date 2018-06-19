@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public Array [] Consulta (String Ciudad){
-        EditText Poblacion = (EditText) findViewById(R.id.editText);
+    public Array [] Consulta (){
+        EditText Poblacion = findViewById(R.id.editText);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
