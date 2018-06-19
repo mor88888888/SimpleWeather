@@ -12,6 +12,8 @@ public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
     String api="";
     String [] cielos= new String[3];
     String diaactual="";
+    int [] max= new int[3];
+    int [] min= new int[3];
 
     protected Boolean doInBackground(String... NOMBRE){
         try {
@@ -56,18 +58,29 @@ public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
             }
             JSONArray json = new JSONArray(response);
             JSONObject raiz = json.getJSONObject(0);
-            JSONObject prediccion = raiz.getJSONObject("prediccion");
-            JSONArray dia = prediccion.getJSONArray("dia");
-            JSONObject num_dia = dia.getJSONObject(0);
-            JSONArray cielo = num_dia.getJSONArray("estadoCielo");
-            JSONObject tododia = cielo.getJSONObject(0);
 
             diaactual=raiz.getString("elaborado");
-            String []diames=diaactual.split("-");
-            cielos[0]=tododia.getString("descripcion");
+            System.out.println("Dia: "+diaactual);
+            System.out.println(" ");
 
-            //api = json.getString("datos");
-            //System.out.println(api);
+            JSONObject prediccion = raiz.getJSONObject("prediccion");
+            JSONArray dia = prediccion.getJSONArray("dia");
+            for(int i=0;i<3;i++){
+                JSONObject num_dia = dia.getJSONObject(i);
+                JSONArray cielo = num_dia.getJSONArray("estadoCielo");
+                JSONObject tododia = cielo.getJSONObject(0);
+
+                cielos[i]=tododia.getString("descripcion");
+
+                JSONObject temp = num_dia.getJSONObject("temperatura");
+                max[i]=temp.getInt("maxima");
+                min[i]=temp.getInt("minima");
+                System.out.println("Fecha: "+num_dia.getString("fecha"));
+                System.out.println("Cielo: "+cielos[i]);
+                System.out.println("Temperatura max: "+max[i]);
+                System.out.println("Temperatura min: "+min[i]);
+            }
+
         } catch (Exception e){
             System.out.println(e);
         }
