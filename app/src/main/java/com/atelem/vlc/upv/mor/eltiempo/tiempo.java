@@ -46,8 +46,6 @@ public class tiempo extends AppCompatActivity {
             System.out.println(NOMBRE);
             String Resultado[] = null;
             Resultado = new consultaAsincrona().execute(NOMBRE).get();
-            String[] cielo = new String[12];
-            System.out.print("cieloooooo;%s%n");
 
             // Mensajes constantes
             String mensaje_dia="El tiempo del dia:";
@@ -71,15 +69,15 @@ public class tiempo extends AppCompatActivity {
             fecha1.setText(Resultado[0]);
             fecha3.setText(Resultado[1]);
             fecha4.setText(Resultado[2]);
-            cielo1.setText(Resultado[0]);
-            cielo3.setText(Resultado[1]);
-            cielo4.setText(Resultado[2]);
-            max1.setText(Resultado[0]);
-            max3.setText(Resultado[1]);
-            max4.setText(Resultado[2]);
-            min1.setText(Resultado[0]);
-            min3.setText(Resultado[1]);
-            min4.setText(Resultado[2]);
+            cielo1.setText(Resultado[3]);
+            cielo3.setText(Resultado[4]);
+            cielo4.setText(Resultado[5]);
+            max1.setText(Resultado[6]);
+            max3.setText(Resultado[7]);
+            max4.setText(Resultado[8]);
+            min1.setText(Resultado[9]);
+            min3.setText(Resultado[10]);
+            min4.setText(Resultado[11]);
 
 
         } catch (Exception e) {
