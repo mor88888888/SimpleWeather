@@ -67,16 +67,16 @@ public class tiempo extends AppCompatActivity {
 
             // Valores DIA,CIELO,MAX,MIN
             fecha1.setText(Resultado[0]);
-            fecha3.setText(Resultado[1]);
-            fecha4.setText(Resultado[2]);
-            cielo1.setText(Resultado[3]);
-            cielo3.setText(Resultado[4]);
-            cielo4.setText(Resultado[5]);
-            max1.setText(Resultado[6]);
-            max3.setText(Resultado[7]);
-            max4.setText(Resultado[8]);
-            min1.setText(Resultado[9]);
-            min3.setText(Resultado[10]);
+            cielo1.setText(Resultado[1]);
+            max1.setText(Resultado[2]);
+            min1.setText(Resultado[3]);
+            fecha3.setText(Resultado[4]);
+            cielo3.setText(Resultado[5]);
+            max3.setText(Resultado[6]);
+            min3.setText(Resultado[7]);
+            fecha4.setText(Resultado[8]);
+            cielo4.setText(Resultado[9]);
+            max4.setText(Resultado[10]);
             min4.setText(Resultado[11]);
 
 

@@ -22,11 +22,6 @@ public class MainActivity extends AppCompatActivity {
             Intent tiempo = new Intent(getApplicationContext(), tiempo.class);
             tiempo.putExtra("NOMBRE", NOMBRE);
             startActivity(tiempo);
-
-            //consultaAsincrona consulta = new consultaAsincrona();
-
-
-
         } catch (Exception e) {
 
         }
