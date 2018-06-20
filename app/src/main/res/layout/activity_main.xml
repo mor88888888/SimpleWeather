@@ -17,7 +17,8 @@
         android:onClick="Consulta"
         android:text="Buscar"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editText"
@@ -27,6 +28,7 @@
         android:inputType="text"
         android:text="Poblacion"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             String NOMBRE = Poblacion.getText().toString();
             Intent tiempo = new Intent(getApplicationContext(), tiempo.class);
-             tiempo.putExtra("NOMBRE", NOMBRE);
+            tiempo.putExtra("NOMBRE", NOMBRE);
             startActivity(tiempo);
 
             //consultaAsincrona consulta = new consultaAsincrona();
