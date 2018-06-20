@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     private EditText Poblacion;
@@ -16,9 +17,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Consulta (View view) {
-        consultaAsincrona consulta = new consultaAsincrona();
-        String NOMBRE = Poblacion.getText().toString();
-        consulta.execute(NOMBRE);
+        try {
+            String NOMBRE = Poblacion.getText().toString();
+            Intent tiempo = new Intent(getApplicationContext(), tiempo.class);
+             tiempo.putExtra("NOMBRE", NOMBRE);
+            startActivity(tiempo);
+
+            //consultaAsincrona consulta = new consultaAsincrona();
+
+
+
+        } catch (Exception e) {
+
+        }
     }
+
+
+
 
 }

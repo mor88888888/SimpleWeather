@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import org.json.*;
 
-public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
+public class consultaAsincrona extends AsyncTask<String,Void,String[]>{
 
     String inputLine="";
     String api="";
@@ -15,11 +15,12 @@ public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
     int [] max= new int[3];
     int [] min= new int[3];
 
-    protected Boolean doInBackground(String... NOMBRE){
+    @Override
+    protected String[] doInBackground(String... NOMBRE){
         try {
             System.out.println("Nombre: "+NOMBRE[0]);
-            //URL url = new URL("http://servermor.asuscomm.com:8564/bd.php?nombre=" + NOMBRE[0]);
-            URL url = new URL("http://192.168.1.12/bd.php?nombre=" + NOMBRE[0]);
+            URL url = new URL("http://servermor.asuscomm.com:8564/bd.php?nombre=" + NOMBRE[0]);
+            //URL url = new URL("http://192.168.1.12/bd.php?nombre=" + NOMBRE[0]);
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
             if((inputLine = in.readLine()) != null){
                 System.out.println(inputLine);
@@ -84,7 +85,7 @@ public class consultaAsincrona extends AsyncTask<String, Void, Boolean>{
         } catch (Exception e){
             System.out.println(e);
         }
-        return null;
+        return cielos;
     }
 
 
