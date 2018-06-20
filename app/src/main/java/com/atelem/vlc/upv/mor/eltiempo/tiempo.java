@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class tiempo extends AppCompatActivity {
     //private EditText Tiempo1,Tiempo2,Tiempo3;
-    private TextView Tiempo1,Tiempo11,Tiempo12,Tiempo13,Tiempo3,Tiempo31,Tiempo32,Tiempo33,Tiempo4,Tiempo41,Tiempo42,Tiempo43,cielo1,cielo3,cielo4;
+    private TextView Tiempo1,Tiempo11,Tiempo12,Tiempo13,Tiempo3,Tiempo31,Tiempo32,Tiempo33,Tiempo4,Tiempo41,Tiempo42,Tiempo43,fecha1,fecha3,fecha4,cielo1,cielo3,cielo4,max1,max3,max4,min1,min3,min4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
@@ -25,23 +25,23 @@ public class tiempo extends AppCompatActivity {
             Tiempo41 = findViewById(R.id.textView41);
             Tiempo42 = findViewById(R.id.textView42);
             Tiempo43 = findViewById(R.id.textView43);
-            /*
-            dia1 = findViewById(R.id.textView5);
-            dia3 = findViewById(R.id.textView6);
-            dia4 = findViewById(R.id.textView7);
-            */
-            cielo1 = findViewById(R.id.textView5);
-            cielo3 = findViewById(R.id.textView6);
-            cielo4 = findViewById(R.id.textView7);
-            /*
-            max1 = findViewById(R.id.textView5);
-            max3 = findViewById(R.id.textView6);
-            max4 = findViewById(R.id.textView7);
 
-            min1 = findViewById(R.id.textView5);
-            min3 = findViewById(R.id.textView6);
-            min4 = findViewById(R.id.textView7);
-            */
+            fecha1 = findViewById(R.id.fecha1);
+            fecha3 = findViewById(R.id.fecha3);
+            fecha4 = findViewById(R.id.fecha4);
+
+            cielo1 = findViewById(R.id.cielo1);
+            cielo3 = findViewById(R.id.cielo3);
+            cielo4 = findViewById(R.id.cielo4);
+
+            max1 = findViewById(R.id.max1);
+            max3 = findViewById(R.id.max3);
+            max4 = findViewById(R.id.max4);
+
+            min1 = findViewById(R.id.min1);
+            min3 = findViewById(R.id.min3);
+            min4 = findViewById(R.id.min4);
+
             String NOMBRE = getIntent().getStringExtra("NOMBRE");
             System.out.println(NOMBRE);
             String Resultado[] = null;
@@ -68,9 +68,18 @@ public class tiempo extends AppCompatActivity {
             Tiempo43.setText(mensaje_min);
 
             // Valores DIA,CIELO,MAX,MIN
+            fecha1.setText(Resultado[0]);
+            fecha3.setText(Resultado[1]);
+            fecha4.setText(Resultado[2]);
             cielo1.setText(Resultado[0]);
             cielo3.setText(Resultado[1]);
             cielo4.setText(Resultado[2]);
+            max1.setText(Resultado[0]);
+            max3.setText(Resultado[1]);
+            max4.setText(Resultado[2]);
+            min1.setText(Resultado[0]);
+            min3.setText(Resultado[1]);
+            min4.setText(Resultado[2]);
 
 
         } catch (Exception e) {

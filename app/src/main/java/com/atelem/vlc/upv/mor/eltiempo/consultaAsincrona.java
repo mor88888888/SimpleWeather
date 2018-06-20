@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Arrays;
+
 import org.json.*;
 
 public class consultaAsincrona extends AsyncTask<String,Void,String[]>{
@@ -14,6 +16,8 @@ public class consultaAsincrona extends AsyncTask<String,Void,String[]>{
     String diaactual="";
     int [] max= new int[3];
     int [] min= new int[3];
+    String [] fecha= new String[3];
+    String [] todo = new String [12];
 
     @Override
     protected String[] doInBackground(String... NOMBRE){
@@ -76,16 +80,24 @@ public class consultaAsincrona extends AsyncTask<String,Void,String[]>{
                 JSONObject temp = num_dia.getJSONObject("temperatura");
                 max[i]=temp.getInt("maxima");
                 min[i]=temp.getInt("minima");
+                fecha[i]=num_dia.getString("fecha");
                 System.out.println("Fecha: "+num_dia.getString("fecha"));
                 System.out.println("Cielo: "+cielos[i]);
                 System.out.println("Temperatura max: "+max[i]);
                 System.out.println("Temperatura min: "+min[i]);
             }
-
+            int j=0;
+            for(int i=0;i<3;i++){
+                todo[j]=fecha[i]; j++;
+                todo[j]=cielos[i]; j++;
+                todo[j]= String.valueOf(max[i]); j++;
+                todo[j]= String.valueOf(min[i]); j++;
+            }
+            System.out.println(Arrays.toString(todo));
         } catch (Exception e){
             System.out.println(e);
         }
-        return cielos;
+        return todo;
     }
 
 
